@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUT Merge - Professional Image Color Grading & 3D LUT Creator</title>
+  <meta name="description"
+    content="Merge multiple 3D LUTs into one with real-time preview. Professional color grading tool for photographers and filmmakers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <header class="top-bar">
+      <div class="logo">LUT Merge</div>
+      <div class="actions">
+        <button id="export-photo-btn" class="btn btn-primary">Export Photo</button>
+      </div>
+    </header>
+
+    <main class="middle-area">
+      <section class="preview-section panel">
+        <div class="panel-header">Preview</div>
+        <div id="canvas-container" class="canvas-container">
+          <!-- WebGL Canvas will be here -->
+        </div>
+        <div class="zoom-controls">
+          <button id="compare-btn" class="compare-btn">Compare</button>
+          <div class="divider"></div>
+          <button id="zoom-in">+</button>
+          <button id="zoom-out">-</button>
+          <button id="zoom-reset">100%</button>
+        </div>
+      </section>
+
+      <section class="merger-section panel">
+        <div class="panel-header">LUT Merger</div>
+        <div id="lut-chain" class="lut-chain">
+          <!-- Active LUT chain items will be here -->
+          <div class="drop-zone" id="chain-drop-zone">
+            <span>Drag LUT from library here</span>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button id="export-lut-btn" class="btn btn-secondary">Export the merged LUT</button>
+        </div>
+      </section>
+
+      <aside class="library-section panel">
+        <div class="panel-header">LUT Library</div>
+        <div id="lut-library" class="lut-grid">
+          <!-- LUT items will be here -->
+        </div>
+        <div class="panel-footer">
+          <input type="file" id="lut-input" accept=".cube" multiple style="display: none;" />
+          <button id="import-lut-btn" class="btn btn-secondary">Import New LUT</button>
+        </div>
+      </aside>
+    </main>
+
+    <footer class="bottom-area">
+      <div class="photo-stream-container">
+        <div class="add-photo-zone">
+          <input type="file" id="photo-input" accept="image/*" multiple style="display: none;" />
+          <button id="add-photo-btn" class="add-btn">
+            <span class="plus-icon">+</span>
+            <span class="label">Add Photos</span>
+          </button>
+        </div>
+        <div id="photo-stream" class="photo-stream">
+          <!-- Photo thumbnails will be here -->
+        </div>
+      </div>
+    </footer>
+    <div id="context-menu" class="context-menu" style="display: none;">
+      <div class="context-menu-item" id="context-menu-remove">Remove</div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
