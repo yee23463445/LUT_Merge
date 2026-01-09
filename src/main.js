@@ -1,7 +1,6 @@
-import './style.css';
-import { v4 as uuidv4 } from 'uuid';
-import { parseCubeLUT, generateCubeLUT } from './lut-parser';
-import { LUTRenderer } from './renderer';
+const uuidv4 = () => crypto.randomUUID();
+import { parseCubeLUT, generateCubeLUT } from './lut-parser.js';
+import { LUTRenderer } from './renderer.js';
 
 class App {
     constructor() {
